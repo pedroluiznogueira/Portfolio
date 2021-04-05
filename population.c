@@ -22,6 +22,9 @@ int main(void)
     // Calculates the number of years that the population will take to reach the final size
     float z = 12 * (j - i) / i;
     
+    if(z == 1)
+    printf("Year: %.0f\n", z);
+    else
     // Inform the user the number of years
     printf("Years: %.0f\n", z);
 }
