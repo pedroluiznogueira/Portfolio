@@ -15,17 +15,16 @@ int main(void)
     {
         for (int a = 0; a < n - 1; a++)
         {
-                printf(" ");
+            printf(" ");
         }
     
         for (int i = 0; i < n - (n - 1); i++)
         {
-                printf("#");
+            printf("#");
         }
         printf("\n");
     }
     //
-    
     if (n >= 2)
     {    
         for (int b = 0; b < n - 2; b++)
@@ -40,7 +39,6 @@ int main(void)
         printf("\n");
     }
     //
-    
     if (n >= 3)
     {    
         for (int c = 0; c < n - 3; c++)
@@ -55,7 +53,6 @@ int main(void)
         printf("\n");
     }
     //
-    
     if (n >= 4)
     {
         for (int d = 0; d < n - 4; d++)
@@ -70,7 +67,6 @@ int main(void)
         printf("\n");
     }
     //
-    
     if (n >= 5)
     {
         for (int e = 0; e < n - 5; e++)
@@ -85,7 +81,6 @@ int main(void)
         printf("\n");
     }
     //
-    
     if (n >= 6)
     {
         for (int f = 0; f < n - 6; f++)
@@ -100,7 +95,6 @@ int main(void)
         printf("\n");
     }
     //
-    
     if (n >= 7)
     {
         for (int g = 0; g < n - 7; g++)
@@ -115,7 +109,6 @@ int main(void)
         printf("\n");
     }
     //
-    
     if (n >= 8)
     {
         for (int q = 0; q < n; q++)
@@ -124,6 +117,5 @@ int main(void)
         }
         printf("\n");
     }
-    
-    return(0);
+    return (0);
 }
