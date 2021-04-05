@@ -3,28 +3,28 @@
 
 int main(void)
 {
-    float i;
+    int n,m,y,b,d;
+    
     do
     {
-        // Prompt user for the initial population
-        i = get_float("Initial Population: \n");
+        n = get_int("Start Size: ");
     }
-    while (i < 9);
-
-    float j;
+    while(n < 9);
+    
     do
     {
-        // Prompt user for the final population
-        j = get_float("Final Population: \n");
+        m = get_int("End Size: ");
     }
-    while (j < i);
+    while(m < n);
     
-    // Calculates the number of years that the population will take to reach the final size
-    float z = 12 * (j - i) / i;
+    for(y = 0; n < m; y++)
+    {
+        b = n/3;
+        d = n/4;
+        n = n + b - d;
+    }
     
-    if(z == 1)
-    printf("Year: %.0f\n", z);
-    else
-    // Inform the user the number of years
-    printf("Years: %.0f\n", z);
+    {
+        printf("Years: %i\n", y);
+    }
 }
