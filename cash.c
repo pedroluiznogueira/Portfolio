@@ -4,28 +4,20 @@
 
 int main(void)
 {
-    float n, a, b, c, d, y, w, v;
-    int x, z, u, t; 
+    float dollars;
+    int cents;
+    
     do
     {
-        n = get_float("Change owed: ");
+        dollars = get_float("Change owed: ");
+        cents = round(dollars * 100);
     }
-    while(n < 0);
+    while (cents <= 0);
     
-    a = 25;
-    b = 10;
-    c = 5;
-    d = 1;
+    int count_25 = (cents / 25);
+    int count_10 = (cents % 25) / 10;
+    int count_5 = ((cents % 25) % 10)  / 5;
+    int count_1 = (((cents % 25) % 10) % 5) / 1;
     
-    x = (int) n / a;
-    y = n - (x * a);
-    z = (int) y / b;
-    w = y - (z * b);
-    u = (int) w / c;
-    v = w - (u * c);
-    t = (int) v / d;
-    
-    float m = x + z + u + t;
-    
-    printf("%.0f\n", m);
+    printf("%i\n", count_25 + count_10 + count_5 + count_1);
 }
