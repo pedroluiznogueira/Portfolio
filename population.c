@@ -23,5 +23,5 @@ int main(void)
     int z = 12 * (j - i) / i;
     
     // Inform the user the number of years
-    printf("The number of years to reach the final size will be: %i\n", z);
+    printf("Years: %i\n", z);
 }
