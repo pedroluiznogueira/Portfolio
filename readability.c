@@ -28,7 +28,7 @@ void printGradeLevel(int gradeLevel)
 {
 	if (gradeLevel <= 1)
 	{
-		printf("before grade 1\n");
+		printf("Before Grade 1\n");
 	}
 	else if (gradeLevel >= 16)
 	{
@@ -36,7 +36,7 @@ void printGradeLevel(int gradeLevel)
 	}
 	else
 	{
-		printf("grade %i\n", gradeLevel );
+		printf("Grade %i\n", gradeLevel );
 	}
 }
 
