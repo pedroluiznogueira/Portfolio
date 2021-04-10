@@ -4,6 +4,8 @@
 #include <math.h>
 #include <ctype.h>
 
+// Declaration of all the functions used 
+
 int getNumLetters(string text);
 int getNumSentences(string text);
 int getNumWords(string text);
@@ -12,7 +14,9 @@ void printGradeLevel(int gradeLevel);
 
 int main(int argc, string argv[])
 {
-	string text = get_string("Text: ");
+	string text = get_string("Text: "); // Asks for a text from user
+	
+	// Shows the type of every output of the functions
 
 	int numLetters = getNumLetters(text);
 	int numSentences = getNumSentences(text);
@@ -24,7 +28,7 @@ int main(int argc, string argv[])
 
 }
 
-void printGradeLevel(int gradeLevel)
+void printGradeLevel(int gradeLevel) // Print the grade level of the text
 {
 	if (gradeLevel <= 1)
 	{
@@ -40,7 +44,7 @@ void printGradeLevel(int gradeLevel)
 	}
 }
 
-int getGradeLevel(int numLetters, int numSentences, int numWords)
+int getGradeLevel(int numLetters, int numSentences, int numWords) // Calculate the formula
 {
 	float S = (numSentences / (float)numWords) * 100;
 	float L = (numLetters / (float)numWords) * 100;
@@ -48,7 +52,7 @@ int getGradeLevel(int numLetters, int numSentences, int numWords)
 	return round(0.0588 * L - 0.296 * S - 15.8);
 }
 
-int getNumLetters(string text)
+int getNumLetters(string text) // Calculate the number of letters in the text
 {
 	int numLetters = 0;
 	for (int i = 0; i < strlen(text); i++)
@@ -62,7 +66,7 @@ int getNumLetters(string text)
 	return numLetters;
 }
 
-int getNumWords(string text)
+int getNumWords(string text) // Calculate the number of numbers in the text
 {
 	int numWords = 0;
 	for (int i = 0; i < strlen(text); i++)
@@ -75,7 +79,7 @@ int getNumWords(string text)
 	return numWords + 1;
 }
 
-int getNumSentences(string text)
+int getNumSentences(string text) // Calculate the number of sentences in the text
 {
 	int numSentences = 0;
 	for (int i = 0; i < strlen(text); i++)
