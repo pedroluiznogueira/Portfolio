@@ -1,0 +1,17 @@
+sort1 uses: BubbleSort
+
+How do you know?: 
+
+I concluded this because in data already classified, sort 1 performed much faster than the classification by selection.
+
+sort2 uses: MergeSort
+
+How do you know?: 
+
+I concluded this because in inverted values, sort 2 was the fastest algorithm.
+
+sort3 uses: Selection Sort
+
+How do you know?: 
+
+because for sorted data, sort 3 has almost the same time as for inverted or unclassified data.
