@@ -77,7 +77,7 @@ bool vote(string name)
     return false;
 }
 
-// Print the winner (or winners) of the election
+// Print the final result of the election, with you winner or winners
 void print_winner(void)
 {
     int max_votes = candidates[0].votes;
