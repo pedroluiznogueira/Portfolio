@@ -41,7 +41,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 
 }
 
-void swap(RGBTRIPLE * pixel1, RGBTRIPLE * pixel2)
+void swap(RGBTRIPLE *pixel1, RGBTRIPLE *pixel2)
 {
     RGBTRIPLE temp = *pixel1;
     *pixel1 = *pixel2;
@@ -68,7 +68,8 @@ bool is_valid_pixel(int i, int j, int height, int width)
 
 RGBTRIPLE get_blurred_pixel(int i, int j, int height, int width, RGBTRIPLE image[height][width])
 {
-    int redValue, blueValue, greenValue; redValue = blueValue = greenValue = 0;
+    int redValue, blueValue, greenValue;
+    redValue = blueValue = greenValue = 0;
     int numOfValidPixels = 0;
     for (int di = -1; di <= 1; di++)
     {
