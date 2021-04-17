@@ -8,15 +8,14 @@ for char in text:
     if char.isaplha():
         letters += 1
     if char.isspace():
-        word += 1
+        words += 1
     if char in ['?', '.', '!']:
         sentences += 1
         
 words += 1
-
 L = (letters * 100.0) / words
 S = (sentences * 100.0) / words
-results = int((0.0588 * L - 0.296 * S - 15.8) + 0.5)
+result = int((0.0588 * L - 0.296 * S - 15.8) + 0.5)
 if result < 1:
     print('Before Grade 1')
 elif result >= 16:
