@@ -11,7 +11,7 @@ for char in text:
         words += 1
     if char in ['?', '.', '!']:
         sentences += 1
-        
+
 words += 1
 L = (letters * 100.0) / words
 S = (sentences * 100.0) / words
