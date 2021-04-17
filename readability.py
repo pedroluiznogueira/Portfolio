@@ -1,24 +1,22 @@
 from cs50 import get_string
 
-text = get_string("Text: ")
+s = get_string("Text: ").strip()
+num_words, num_letters, num_sentences = 0, 0, 0
 
-letters = sentences = words = 0
-
-for char in text:
-    if char.isaplha():
-        letters += 1
-    if char.isspace():
-        words += 1
-    if char in ['?', '.', '!']:
-        sentences += 1
-
-words += 1
-L = (letters * 100.0) / words
-S = (sentences * 100.0) / words
-result = int((0.0588 * L - 0.296 * S - 15.8) + 0.5)
-if result < 1:
-    print('Before Grade 1')
-elif result >= 16:
-    print('Grade 16+')
+for i in range(len(s)):
+    if (i == 0 and s[i] != ' ') or (i != len(s) - 1 and s[i] == ' ' and s[i + 1] != ' '):
+        num_words += 1
+    if s[i].isalpha():
+        num_letters += 1
+    if s[i] == '.' or s[i] == '?' or s[i] == '!':
+        num_sentences += 1
+        
+L = num_letters / num_words * 100
+S = num_sentences / num_words * 100
+index = round(0.0588 * L - 0.296 * S - 15.8)
+if index < 1:
+    print("Before Grade 1")
+elif index >= 16:
+    print("Grade 16+")
 else:
-    print(f"Grade {result}")
+    print(f"Grade {index}")
