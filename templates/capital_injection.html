@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Capital Injection
+{% endblock %}
+
+{% block main %}
+    <form action="/capital_injection" method="post">
+        <div class="form-group">
+            <input autocomplete="off" placeholder="Cash Amount" min="1" class="form-control" name="cash" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Capital Injection</button>
+    </form>
+
+
+{% endblock %}
