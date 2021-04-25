@@ -227,7 +227,7 @@ def register():
         except:
             return apology("username already exists", 403)
         if prim_key is None:
-            return apology("registration error", 400)
+            return apology("registration error", 403)
         session["user_id"] = prim_key
         return redirect("/")
 
