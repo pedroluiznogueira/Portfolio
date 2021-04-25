@@ -5,40 +5,27 @@
 {% endblock %}
 
 {% block main %}
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-        <table class="table table-hover">
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <th>Action</th>
-                <th>Quantity</th>
                 <th>Symbol</th>
-                <th>PPS</th>
-                <th>Total</th>
-                <th>Date</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Transacted</th>
             </tr>
-            {% for stock in stocks %}
+        </thead>
+
+        <tbody>
+            {% for transaction in transactions %}
             <tr>
-                <td>
-                    {% if stock.action %}
-                        BUY
-                    {% else %}
-                        SELL
-                    {% endif %}
-                </td>
-                <td>{{ stock.quantity }}</td>
-                <td>{{ stock.symbol }}</td>
-                <td>{{ stock.pps }}</td>
-                <td>{{ stock.total }}</td>
-                <td>{{ stock.date }}</td>
-            </tr>    
+                <td>{{transaction["symbol"]}}</td>
+                <td>{{transaction["shares"]}}</td>
+                <td>{{transaction["price"]}}</td>
+                <td>{{transaction["transacted"]}}</td>
+            </tr>
             {% endfor %}
-        </table>
-        <h5 class="text-left">
-                <small>
-                <mark>PPS</mark> - price per share 
-                <mark>Total</mark> - total transaction value
-                </small>
-        </h5>
-    </div>
-    <div class="col-md-2"></div>
+        </tbody>
+
+    </table>
+
 {% endblock %}

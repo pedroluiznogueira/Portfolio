@@ -5,19 +5,21 @@
 {% endblock %}
 
 {% block main %}
-    <form class="form-inline" action="{{ url_for('sell') }}" method="post">
+    <form action="/sell" method="post">
         <div class="form-group">
             <select class="form-control" name="symbol">
-                {% for stock in stocks %}
-                  <option value="{{ stock.symbol }}">{{ stock.symbol }}</option>
+                <option disabled selected value="">Symbol</option>
+                {% for symbol in symbols %}
+                    <option value="{{symbol}}">{{symbol}}</option>
                 {% endfor %}
-            </select>  
+            </select>
+
         </div>
         <div class="form-group">
-            <input type="number" class="form-control" name="quantity" placeholder="Quantity">
+            <input autocomplete="off" placeholder="Shares" min="1" class="form-control" name="shares" type="number">
         </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-default">Sell</button>
-        </div>
+
+        <button class="btn btn-primary" type="submit">Sell</button>
+
     </form>
 {% endblock %}
