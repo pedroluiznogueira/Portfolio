@@ -4,26 +4,40 @@
 
 int main(void)
 {
-    float dollars;
     int cents;
-    // Asks user for the number of change owed
+    float dolares;
     do
     {
-        dollars = get_float("Change owed: ");
-        cents = round(dollars * 100);
+        dolares = get_float("Quantidade em dolares: ");
+    }
+    while (dolares < 0);
+    cents = (int) round (100 * dolares);
+    
+    int sum = 0;
+
+    int a = 41 % 25;
+    if (a < 25)
+    {
+        sum = sum + 1;
     }
     
-    // Create a condition to reject negative numbers
-    while (cents <= 0);
+    int b = 41 % 10;
+    if (b < 10)
+    {
+        sum = sum + 1;
+    }
     
-    // Calculates the smallest number to be delivered
+    int c = 41 % 5;
+    if (c < 5)
+    {
+        sum = sum + 1;
+    }
     
-    int count_25 = (cents / 25);
-    int count_10 = (cents % 25) / 10;
-    int count_5 = ((cents % 25) % 10)  / 5;
-    int count_1 = (((cents % 25) % 10) % 5) / 1;
-    
-    // Prints the result in the terminal
-    
-    printf("%i\n", count_25 + count_10 + count_5 + count_1);
+    int d = 41 % 1;
+    if (d < 1)
+    {
+        sum = sum + 1;
+    }
+
+    printf("%i\n", sum);
 }
