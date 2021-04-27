@@ -27,5 +27,5 @@ int main(void)
         sum = sum + 1;
     }
     // TODO: Print number of years
-    printf("Number of years is: %i\n", sum);
+    printf("Years: %i\n", sum);
 }
