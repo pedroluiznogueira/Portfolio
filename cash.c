@@ -4,7 +4,7 @@
 
 int main(void)
 {
-    int cents;
+    int a, b, c, d, cents, sum_1, sum_2, sum_3, sum_4, total_points;
     float dolares;
     do
     {
@@ -13,31 +13,16 @@ int main(void)
     while (dolares < 0);
     cents = (int) round (100 * dolares);
     
-    int sum = 0;
+    a = 25;
+    b = 10;
+    c = 5;
+    d = 1;
+    
+    sum_1 = floor(cents / a);
+    sum_2 = floor((cents % a) / b);
+    sum_3 = floor(((cents % a) % b) / c);
+    sum_4 = floor((((cents % a) % b) % c) / d);
 
-    int a = 41 % 25;
-    if (a < 25)
-    {
-        sum = sum + 1;
-    }
-    
-    int b = 41 % 10;
-    if (b < 10)
-    {
-        sum = sum + 1;
-    }
-    
-    int c = 41 % 5;
-    if (c < 5)
-    {
-        sum = sum + 1;
-    }
-    
-    int d = 41 % 1;
-    if (d < 1)
-    {
-        sum = sum + 1;
-    }
-
-    printf("%i\n", sum);
+    total_points = sum_1 + sum_2 + sum_3 + sum_4;
+    printf("%i\n", total_points);
 }
