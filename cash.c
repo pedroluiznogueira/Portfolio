@@ -4,25 +4,25 @@
 
 int main(void)
 {
-    int a, b, c, d, cents, sum_1, sum_2, sum_3, sum_4, total_points;
-    float dolares;
+    int coin_25, coin_10, coin_5, coin_1, cents, quantity_1, quantity_2, quantity_3, quantity_4, total_coins;
+    float dolls;
     do
     {
-        dolares = get_float("Quantidade em dolares: ");
+        dolls = get_float("Change owed: ");
     }
-    while (dolares < 0);
-    cents = (int) round (100 * dolares);
+    while (dolls < 0);
+    cents = (int) round (100 * dolls);
     
-    a = 25;
-    b = 10;
-    c = 5;
-    d = 1;
+    coin_25 = 25;
+    coin_10 = 10;
+    coin_5 = 5;
+    coin_1 = 1;
     
-    sum_1 = floor(cents / a);
-    sum_2 = floor((cents % a) / b);
-    sum_3 = floor(((cents % a) % b) / c);
-    sum_4 = floor((((cents % a) % b) % c) / d);
+    quantity_1 = floor(cents / coin_25);
+    quantity_2 = floor((cents % coin_25) / coin_10);
+    quantity_3 = floor(((cents % coin_25) % coin_10) / coin_5);
+    quantity_4 = floor((((cents % coin_25) % coin_10) % coin_5) / coin_1);
 
-    total_points = sum_1 + sum_2 + sum_3 + sum_4;
-    printf("%i\n", total_points);
+    total_coins = quantity_1 + quantity_2 + quantity_3 + quantity_4;
+    printf("%i\n", total_coins);
 }
