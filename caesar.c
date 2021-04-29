@@ -45,13 +45,13 @@ int main(int argc, string argv[])
                 if (islower(plainText[j]) == LET_TABELAL[j])
                 {
                     cipher = (plainText[j] + key) % 26;
-                    plainText[j] = LET_TABELAL[j];
+                    plainText[j] = LET_TABELAL[cipher];
                     
                 }
                 else if (isupper(plainText[j]) == LET_TABELAU[j])
                 {
                     cipher = (plainText[j] + key) % 26;
-                    plainText[j] = LET_TABELAU[j];
+                    plainText[j] = LET_TABELAU[cipher];
                 }
             }
         }
