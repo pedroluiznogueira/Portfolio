@@ -41,7 +41,7 @@ int getnum_letters(string text)
 
     for (int i = 0; i < strlen(text); i++)
     {
-        if (text[i] != ' ' && text[i] != '.' && text[i] != '!' && text[i] != '?' && text[i] != '\0')
+        if (toupper(text[i]) != ' ' && toupper(text[i]) != '.' && toupper(text[i]) != '!' && toupper(text[i]) != '?' && toupper(text[i]) != '\0')
         {
             sum = sum + 1;
         }
@@ -55,7 +55,7 @@ int getnum_words(string text)
 
     for (int i = 0; i <= strlen(text); i++)
     {
-        if (text[i] == ' ' || text[i] == '\0')
+        if (toupper(text[i]) == ' ' || toupper(text[i]) == '\0')
         {
             sum = sum + 1;
         }
@@ -69,7 +69,7 @@ int getnum_sentences(string text)
 
     for (int i = 0; i <= strlen(text); i++)
     {
-        if (text[i] == '!' || text[i] == '?' || text[i] == '.')
+        if (toupper(text[i]) == '!' || toupper(text[i]) == '?' || toupper(text[i]) == '.')
         {
             sum = sum + 1;
         }
