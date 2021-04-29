@@ -4,46 +4,44 @@
 #include <string.h>
 #include <math.h>
 
-int num_letters(string texto);
-int num_words(string texto);
-int num_sentences(string texto);
+int getnum_letters(string text);
+int getnum_words(string text);
+int getnum_sentences(string text);
+int calculate_grade(int num_letters, int num_sentences, int num_words);
 
 int main(void)
 {
-    int total_words, total_letters, total_sentences, grade, L, S;
-    string text;
-    text = get_string("Text: ");
+    int num_letters, num_sentences, num_words, grade_level;
+    string texto;
 
-    total_words = num_words(text);
-    total_letters = num_letters(text);
-    total_sentences = num_sentences(text);
+    texto = get_string("Text: ");
+    num_letters = getnum_letters(texto);
+    num_sentences = getnum_sentences(texto);
+    num_words = getnum_words(texto);
+    grade_level = calculate_grade(num_letters, num_sentences, num_words);
 
-    L = round(total_letters / 100);
-    S = round(total_sentences / 100);
-    grade = round(0.0588 * L - 0.296 * S - 15.8);
-
-    if (grade >= 16)
+    if (grade_level >= 16)
     {
         printf("Grade 16+\n");
     }
-    else if (grade <= 1)
+    else if (grade_level < 1)
     {
         printf("Before Grade 1\n");
     }
     else
     {
-        printf("Grade %i\n", grade);
+        printf("Grade %i\n", grade_level);
     }
 
 }
 
-int num_letters(string texto)
+int getnum_letters(string text)
 {
     int sum = 0;
 
-    for (int i = 0; i < strlen(texto); i++)
+    for (int i = 0; i < strlen(text); i++)
     {
-        if (texto[i] != ' ' && texto[i] != '.' && texto[i] != '!' && texto[i] != '?' && texto[i] != '\0')
+        if (text[i] != ' ' && text[i] != '.' && text[i] != '!' && text[i] != '?' && text[i] != '\0')
         {
             sum = sum + 1;
         }
@@ -51,13 +49,13 @@ int num_letters(string texto)
     return sum;
 }
 
-int num_words(string texto)
+int getnum_words(string text)
 {
     int sum = 0;
 
-    for (int i = 0; i <= strlen(texto); i++)
+    for (int i = 0; i <= strlen(text); i++)
     {
-        if (texto[i] == ' ' || texto[i] == '\0')
+        if (text[i] == ' ' || text[i] == '\0')
         {
             sum = sum + 1;
         }
@@ -65,16 +63,32 @@ int num_words(string texto)
     return sum;
 }
 
-int num_sentences(string texto)
+int getnum_sentences(string text)
 {
     int sum = 0;
 
-    for (int i = 0; i <= strlen(texto); i++)
+    for (int i = 0; i <= strlen(text); i++)
     {
-        if (texto[i] == '!' || texto[i] == '?' || texto[i] == '.')
+        if (text[i] == '!' || text[i] == '?' || text[i] == '.')
         {
             sum = sum + 1;
         }
     }
     return sum;
 }
+
+int calculate_grade(int num_letters, int num_sentences, int num_words)
+{
+    int L, S;
+
+    L = round(num_letters / num_words) * 100;
+    S = round(num_sentences / num_words) * 100;
+
+    return round(0.0588 * L - 0.296 * S - 15.8);
+}
+
+
+
+
+
+
