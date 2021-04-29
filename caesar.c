@@ -35,37 +35,43 @@ int main(int argc, string argv[])
     }
 
     plainText = get_string("Plain text: ");
-    
     key = atoi(argv[1]);
     
-    for (int i = 0; i < strlen(plainText); i++)
+    
+    for (int k = 0; k < strlen(plainText); k++)
     {
-        if (isalpha(islower(plainText[i])))
+        if (isalpha(islower(plainText[k])))
         {
-            for (int j = 0; j < TOTAL; j++)
+            for (int i = 0; i < strlen(plainText); i++)
             {
-                if (plainText[i] == LET_TABELAL[j])
+                for (int j = 0; j < TOTAL; j++)
                 {
-                    cypher = ( NUM_TABELA[i] + key ) % 26;
+                    if (plainText[i] == LET_TABELAL[j])
+                    {
+                        cypher = ( NUM_TABELA[i] + key ) % 26;
+                    }
                 }
-             }
-             plainText[i] = LET_TABELAL[cypher];        
-            
-        }
-        
-        else if (isalpha(isupper(plainText[i])))
-        {
-            for (int j = 0; j < TOTAL; j++)
-            {
-                if (plainText[i] == LET_TABELAU[j])
-                {;
-                    cypher = ( NUM_TABELA[i] + key ) % 26;
-                }
+                plainText[i] = LET_TABELAL[cypher];        
             }
-            plainText[i] = LET_TABELAU[cypher];
         }
         
+        else if (isalpha(isupper(plainText[k])))
+        {
+            for (int i = 0; i < strlen(plainText); i++)
+            {
+                for (int j = 0; j < TOTAL; j++)
+                {
+                    if (plainText[i] == LET_TABELAL[j])
+                    {
+                        cypher = ( NUM_TABELA[i] + key ) % 26;
+                    }
+                }
+                plainText[i] = LET_TABELAU[cypher];        
+            }
+        }
+    
     }
+    
     printf("ciphertext: %s", plainText);
     
 }
