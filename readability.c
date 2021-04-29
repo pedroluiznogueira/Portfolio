@@ -79,10 +79,10 @@ int getnum_sentences(string text)
 
 int calculate_grade(int num_letters, int num_sentences, int num_words)
 {
-    float L = (num_letters / num_words) * 100;
-    float S = (num_sentences / num_words) * 100;
+    float L = (num_letters / (float) num_words) * 100;
+    float S = (num_sentences / (float) num_words) * 100;
 
-    return round(floor(0.0588 * L - 0.296 * S - 15.8));
+    return round(0.0588 * L - 0.296 * S - 15.8);
 }
 
 
