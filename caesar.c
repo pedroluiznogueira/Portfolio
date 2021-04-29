@@ -37,12 +37,12 @@ int main(int argc, string argv[])
     {
         for (int j = 0; j < TOTAL; j++)
         {
-            if (islower(isalpha(plainText[i])) == LET_TABELA[j])     
+            if (isalpha(islower(plainText[i])) == LET_TABELA[j])     
             {
                 cypher = ( NUM_TABELA[i] + key ) % 26;
                 printf("%c", LET_TABELA[cypher]);
             }
-            if (isupper(isalpha(plainText[i])) == LET_TABELA[j])     
+            if (isalpha(isupper(plainText[i])) == LET_TABELA[j])     
             {
                 cypher = ( NUM_TABELA[i] + key ) % 26;
                 printf("%c", LET_TABELA[cypher]);
