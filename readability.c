@@ -11,14 +11,14 @@ int calculate_grade(int num_letters, int num_sentences, int num_words);
 
 int main(void)
 {
-    int num_letters, num_sentences, num_words, grade_level;
+    int num_letters, num_sentences, num_words;
     string texto;
 
     texto = get_string("Text: ");
     num_letters = getnum_letters(texto);
     num_sentences = getnum_sentences(texto);
     num_words = getnum_words(texto);
-    grade_level = calculate_grade(num_letters, num_sentences, num_words);
+    float grade_level = floor(calculate_grade(num_letters, num_sentences, num_words));
 
     if (grade_level >= 16)
     {
@@ -30,7 +30,7 @@ int main(void)
     }
     else
     {
-        printf("Grade %i\n", grade_level);
+        printf("Grade %f\n", grade_level);
     }
 
 }
@@ -82,7 +82,7 @@ int calculate_grade(int num_letters, int num_sentences, int num_words)
     float L = (num_letters / (float) num_words) * 100;
     float S = (num_sentences / (float) num_words) * 100;
 
-    return floor(round(0.0588 * L - 0.296 * S - 15.8));
+    return round(0.0588 * L - 0.296 * S - 15.8);
 }
 
 
