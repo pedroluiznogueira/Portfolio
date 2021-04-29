@@ -18,7 +18,7 @@ int main(void)
     num_letters = getnum_letters(texto);
     num_sentences = getnum_sentences(texto);
     num_words = getnum_words(texto);
-    float grade_level = floor(calculate_grade(num_letters, num_sentences, num_words));
+    float grade_level = calculate_grade(num_letters, num_sentences, num_words);
 
     if (grade_level >= 16)
     {
@@ -82,7 +82,7 @@ int calculate_grade(int num_letters, int num_sentences, int num_words)
     float L = (num_letters / (float) num_words) * 100;
     float S = (num_sentences / (float) num_words) * 100;
 
-    return round(0.0588 * L - 0.296 * S - 15.8);
+    return floor(0.0588 * L - 0.296 * S - 15.8);
 }
 
 
