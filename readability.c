@@ -30,7 +30,7 @@ int main(void)
     }
     else
     {
-        printf("Grade %f\n", grade_level);
+        printf("Grade %i\n", (int) grade_level);
     }
 
 }
