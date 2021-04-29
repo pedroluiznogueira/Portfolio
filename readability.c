@@ -10,7 +10,7 @@ int getnum_sentences(string text);
 int calculate_grade(int num_letters, int num_sentences, int num_words);
 void printgrade_level(int grade_level);
 
-int main(void)
+int main(int argc, string argv[])
 {
     int num_letters, num_sentences, num_words, grade_level;
     string texto;
