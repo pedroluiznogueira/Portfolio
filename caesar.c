@@ -38,35 +38,29 @@ int main(int argc, string argv[])
     key = atoi(argv[1]);
     
     
-    for (int k = 0; k < strlen(plainText); k++)
+    for (int i = 0; i < strlen(plainText); i++)
     {
-        if (isalpha(islower(plainText[k])))
+        if (isalpha(islower(plainText[i])))
         {
-            for (int i = 0; i < strlen(plainText); i++)
+            for (int j = 0; j < TOTAL; j++)
             {
-                for (int j = 0; j < TOTAL; j++)
+                if (plainText[i] == LET_TABELAL[j])
                 {
-                    if (plainText[i] == LET_TABELAL[j])
-                    {
-                        cypher = ( NUM_TABELA[i] + key ) % 26;
-                    }
+                    cypher = ( NUM_TABELA[i] + key ) % 26;
                 }
-                plainText[i] = LET_TABELAL[cypher];        
+                plainText[i] = LET_TABELAL[cypher];
             }
         }
         
-        else if (isalpha(isupper(plainText[k])))
+        else if (isalpha(isupper(plainText[i])))
         {
-            for (int i = 0; i < strlen(plainText); i++)
+            for (int j = 0; j < TOTAL; j++)
             {
-                for (int j = 0; j < TOTAL; j++)
+                if (plainText[i] == LET_TABELAL[j])
                 {
-                    if (plainText[i] == LET_TABELAL[j])
-                    {
-                        cypher = ( NUM_TABELA[i] + key ) % 26;
-                    }
+                    cypher = ( NUM_TABELA[i] + key ) % 26;
                 }
-                plainText[i] = LET_TABELAU[cypher];        
+                plainText[i] = LET_TABELAL[cypher];
             }
         }
     
