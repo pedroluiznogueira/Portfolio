@@ -36,23 +36,35 @@ int main(int argc, string argv[])
 
     for (int i = 0; i < strlen(plainText); i++)
     {
-        for (int j = 0; j < TOTAL; j++)
+        if (isalpha(islower(plainText[i])))
         {
-            if (isalpha(islower(plainText[i])) == LET_TABELAU[j])
+            for (int j = 0; j < TOTAL; j++)
             {
-                cypher = ( NUM_TABELA[i] + key ) % 26;
-                printf("%c", LET_TABELAU[cypher]);
+                if (plainText[i] == LET_TABELAL[j])
+                {
+                    cypher = ( NUM_TABELA[i] + key ) % 26;
+                }
             }
-            if (isalpha(isupper(plainText[i])) == LET_TABELAL[j])
-            {
-                cypher = ( NUM_TABELA[i] + key ) % 26;
-                printf("%c", LET_TABELAL[cypher]);
-            }
-            else
-            {
-                printf("%c", plainText[i]);
-            }
+            printf("%c", LET_TABELAL[cypher]);
         }
+        
+        else if (isalpha(isupper(plainText[i])))
+        {
+            for (int j = 0; j < TOTAL; j++)
+            {
+                if (plainText[i] == LET_TABELAU[j])
+                {
+                    cypher = ( NUM_TABELA[i] + key ) % 26;
+                }
+            }
+            printf("%c", LET_TABELAU[cypher]);
+        }
+        
+        else
+        {
+            printf("%c", plainText[i]);
+        }
+        
     }
 }
 
