@@ -1,51 +1,72 @@
 #include <stdio.h>
+#include <cs50.h>
+#include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
-#include <cs50.h>
+
+const int TOTAL = 26;
+int NUM_TABELA[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25};
+char LET_TABELA[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
 int main(int argc, string argv[])
 {
-	// Condition that only 2 command line arguments will be accepteds
-	if (argc != 2)
-	// Condition that only 2 command line arguments will be accepteds
-	{
-		printf("Usage: ./caesar key\n");
-		return 1;
-	}
-	// Verify if the second command line argument does not have only digits
+    int key, cypher;
+    string plainText;
+    
+    if (argc != 2 || atoi(argv[1]) <= 0)
+    {
+        printf("Erro\n");
+        return 1;
+    }
+    
+    for (int i = 0; i < strlen(argv[1]); i++)
+    {
+        if (!isdigit(argv[1][i]))
+        {
+            printf("Erro\n");
+            return 1;
+        }
 
-	for (int k = 0; k < strlen(argv[1]); k++) 
-	{
-		if (isalpha(argv[1][k]))
-		{
-			printf("Usage: ./caesar key\n");
-		return 1;
-	}
+    }
+    
+    plainText = get_string("Plain text: ");
+    
+    key = atoi(argv[1]);
+    
+    for (int i = 0; i < strlen(plainText); i++)
+    {
+        for (int j = 0; j < TOTAL; j++)
+        {
+            if (isalpha(plainText[i]) == LET_TABELA[j])     
+            {
+                cypher = ( NUM_TABELA[i] + key ) % 26;
+                printf("%c", LET_TABELA[cypher]);
+            }
+            else
+            {
+                printf("%c", plainText[i]);
+            }
+        }
+    }
 }
 
-	int k = atoi(argv[1]) % 26; // if k > 26, store the division remainder instead
-	string plain_text = get_string("plain_text: "); // Asks for the plain text
 
-	printf("ciphertext: "); // Prints the plain text after enciphered
 
-	for (int i = 0; i < strlen(plain_text); i++)
-	{
-		if (!isalpha(plain_text[i]))
-		{
-			printf("%c", plain_text[i]);
-			continue;
-		}
 
-		int ascii_offset = isupper(plain_text[i]) ? 65 : 97;
-	// Encipher the text with the condition that will sum in a loop inside the 26 characters between a to z and A to Z
 
-		int pi = plain_text[i] - ascii_offset;
-		int ci = (pi + k) % 26;
 
-		printf("%c", ci + ascii_offset);
-	}
 
-	printf("\n");
-	return 0;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
