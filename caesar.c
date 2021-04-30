@@ -13,7 +13,7 @@ char ALPHA[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 int main(int argc, string argv[])
 {
     int cipher;
-    
+
     if (argc != 2 || atoi(argv[1]) <= 0)
     {
         printf("Erro\n");
@@ -32,7 +32,7 @@ int main(int argc, string argv[])
 
     string word = get_string("Plain text: ");
     int key = atoi(argv[1]);
-    
+
 
     for (int i = 0; i < strlen(word); i++)
     {
@@ -40,7 +40,7 @@ int main(int argc, string argv[])
         {
             for (int j = 0; j < TOTAL; j++)
             {
-                if (word[i] == ALPHA[j])
+                if (word[j] == ALPHA[j])
                 {
                     cipher = (NUM_TABELA[j] + key) % 26;
                     word[i] = ALPHA[cipher];
@@ -51,14 +51,14 @@ int main(int argc, string argv[])
         {
             for (int j = 0; j < TOTAL; j++)
             {
-                if (word[i] == ALPHA[j])
+                if (word[j] == ALPHA[j])
                 {
                     cipher = (NUM_TABELA[j] + key) % 26;
                     word[i] = POINTS[cipher];
                 }
             }
-        }    
-        
+        }
+
     }
     printf("%s\n", word);
 }
