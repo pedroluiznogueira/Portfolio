@@ -44,7 +44,7 @@ int main(int argc, string argv[])
                 {
                     cipher = (numeros[j] + key) % 26;
                     word[i] = letrasmin[cipher];
-                    j = j + 26;
+                    break;
                 }
             }
         }
@@ -56,7 +56,7 @@ int main(int argc, string argv[])
                 {
                     cipher = (numeros[j] + key) % 26;
                     word[i] = letrasmaiu[cipher];
-                    j = j + 26;
+                    break;
                 }
             }
         }
