@@ -46,7 +46,7 @@ int main(int argc, string argv[])
     }
 
     int voter_count = get_int("Number of voters: ");
-
+    
     // Loop over all voters
     for (int i = 0; i < voter_count; i++)
     {
@@ -68,34 +68,33 @@ bool vote(string name)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if (strcmp(name, candidates[i].name) == 0)
+        if (strcmp(candidates[i].name, name) == 0)
         {
-            candidates[i].votes++;
+            candidates[i].votes = candidates[i].votes + 1;
             return true;
         }
     }
     return false;
 }
 
-// Print the final result of the election, with you winner or winners
+// Print the winner (or winners) of the election
 void print_winner(void)
 {
-    int max_votes = candidates[0].votes;
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes > max_votes)
+        for (int j = i + 1; j < candidate_count - 1; j++ )
         {
-            max_votes = candidates[i].votes;
+            if (candidates[i].votes > candidates[j].votes)
+            {
+                printf("%s wins", candidates[i].name);
+                
+            }
+            else if (candidates[i].votes == candidates[j].votes)
+            {
+                printf("%s and %s are tied", candidates[i].name, candidates[j].name);
+                
+            }
         }
     }
-    
-    for (int i = 0; i < candidate_count; i++)
-    {
-        if (candidates[i].votes == max_votes)
-        {
-            printf("%s\n", candidates[i].name);
-        }
-    }
-    
 }
 
