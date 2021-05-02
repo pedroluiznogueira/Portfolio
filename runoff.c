@@ -148,7 +148,7 @@ void tabulate(void)
         {
             if (preferences[i][j] == j)
             {
-                candidates[i].votes = candidates[i].votes + 1;
+                candidates[j].votes = candidates[j].votes + 1;
             }
         }
     }
