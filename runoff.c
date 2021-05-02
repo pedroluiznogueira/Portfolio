@@ -128,15 +128,13 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    for (int i = 0; i < voter_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = 1; j <= candidate_count; j++)
+        if (strcmp(name, candidates[i].name) == 0)
         {
-            if (strcmp(candidates[i].name, name) == 0)
-            {
-                preferences[i][j] = j;
-                return true;
-            }
+            preferences[voter][rank] = i;
+            printf("TRUE: %s was found at %i", candidates[i].name, i);
+            return true;
         }
     }
     return false;
