@@ -133,7 +133,6 @@ bool vote(int voter, int rank, string name)
         if (strcmp(name, candidates[i].name) == 0)
         {
             preferences[voter][rank] = i;
-            printf("TRUE: %s was found at %i", candidates[i].name, i);
             return true;
         }
     }
@@ -147,7 +146,7 @@ void tabulate(void)
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            if (preferences[i][j] == j)
+            if (candidates[i].votes ==  candidates[j].votes)
             {
                 candidates[i].votes = candidates[i].votes + 1;
             }
