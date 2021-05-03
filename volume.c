@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     fwrite(bytes, sizeof(BYTE), HEADER_SIZE, output);
 
     // TODO: Read samples from input file and write updated data to output file
-    BYTE_16 bytes_16;
+    BYTE_16 buffer;
     
     fseek(input, 44,0);
     fseek(output, 44,0);
@@ -58,10 +58,10 @@ int main(int argc, char *argv[])
     // a cada 2 bytes que passar eu multiplico eles 
     // depois copio o resultado para o output file 
     
-    while (fread(&bytes_16, sizeof(BYTE_16), 1, input))
+    while (fread(&buffer, sizeof(BYTE_16), 1, input))
     {
-        bytes_16 = floor((float)(factor * bytes_16));
-        fwrite(&bytes_16, sizeof(BYTE_16), 1, output);
+        buffer = buffer * factor;
+        fwrite(&buffer, sizeof(BYTE_16), 1, output);
     }
 
     
