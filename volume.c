@@ -7,7 +7,7 @@
 
 // declaring a data type to read from the input file to the output file 
 typedef uint8_t BYTE;
-typedef uint16_t BYTE_16;
+typedef int16_t BYTE_16;
 
 // Number of bytes in .wav header
 const int HEADER_SIZE = 44;
