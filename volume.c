@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
     
     while (fread(&bytes_16, sizeof(BYTE_16), 1, input))
     {
-        bytes_16 = round((float)(BYTE_16)(factor * bytes_16));
+        bytes_16 = (float)(factor * bytes_16);
         fwrite(&bytes_16, sizeof(BYTE_16), 1, output);
     }
 
