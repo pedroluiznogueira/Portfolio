@@ -8,7 +8,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            if (image[i][j].rgbtRed != image[i][j].rgbtGreen ||  image[i][j].rgbtRed != image[i][j].rgbtBlue)
+            if (image[i][j].rgbtRed != image[i][j].rgbtGreen ||  image[i][j].rgbtRed != image[i][j].rgbtBlue || image[i][j].rgbtGreen != image[i][j].rgbtBlue)
             {
                 for (int k = 0; k < 3; k++)
                 {
@@ -19,7 +19,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 
                 }
             }
-            else if (image[i][j].rgbtRed == image[i][j].rgbtGreen || image[i][j].rgbtRed == image[i][j].rgbtBlue)
+            else if (image[i][j].rgbtRed == image[i][j].rgbtGreen || image[i][j].rgbtRed == image[i][j].rgbtBlue || image[i][j].rgbtGreen == image[i][j].rgbtBlue)
             {
                 image[i][j].rgbtBlue = image[i][j].rgbtRed;
                 image[i][j].rgbtGreen = image[i][j].rgbtRed;
