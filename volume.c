@@ -4,11 +4,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// declaring a data type to read from the input file to the output file 
+typedef uint8_t BYTE;
+typedef uint16_t BYTE_16;
+
 // Number of bytes in .wav header
 const int HEADER_SIZE = 44;
-
-typedef uint8_t BYTE;
-typedef int16_t SAMPLE_AUDIO;
 
 int main(int argc, char *argv[])
 {
@@ -36,24 +37,33 @@ int main(int argc, char *argv[])
 
     float factor = atof(argv[3]);
     
-    BYTE hB[HEADER_SIZE];
+    BYTE bytes[HEADER_SIZE];
+    
+    // argument 1 ==> variável 
+    // argument 2 ==> sizeof();
+    //argument 3 ==> quantidade de vezes que vai iterar (read or write)
+    // argument 4 ==> pointer que aponta para o arquivo que você quer iterar
 
     // TODO: Copy header from input file to output file
-
-    fread(hB, sizeof(BYTE), HEADER_SIZE, input);
-    fwrite(hB, sizeof(BYTE), HEADER_SIZE, output);
+    fread(bytes, sizeof(BYTE), HEADER_SIZE, input);
+    fwrite(bytes, sizeof(BYTE), HEADER_SIZE, output);
 
     // TODO: Read samples from input file and write updated data to output file
-    // Keep reading data from row until empty:
-
-    SAMPLE_AUDIO buffer;
-
-    while (fread(&buffer, sizeof(SAMPLE_AUDIO), 1, input) == 1)
+    BYTE_16 bytes_16;
+    
+    fseek(input, 44,0);
+    fseek(output, 44,0);
+    
+    // a cada 2 bytes que passar eu multiplico eles 
+    // depois copio o resultado para o output file 
+    
+    while (fread(&bytes_16, sizeof(BYTE_16), 1, input))
     {
-        buffer = buffer * factor;
-        fwrite(&buffer, sizeof(SAMPLE_AUDIO), 1, output);
+        bytes_16 = (BYTE_16)(factor * bytes_16);
+        fwrite(&bytes_16, sizeof(BYTE_16), 1, output);
     }
 
+    
     // Close files
     fclose(input);
     fclose(output);
