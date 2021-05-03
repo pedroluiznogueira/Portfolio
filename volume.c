@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 // declaring a data type to read from the input file to the output file 
 typedef uint8_t BYTE;
@@ -59,7 +60,7 @@ int main(int argc, char *argv[])
     
     while (fread(&bytes_16, sizeof(BYTE_16), 1, input))
     {
-        bytes_16 = (BYTE_16)(factor * bytes_16);
+        bytes_16 = round((BYTE_16)(factor * bytes_16));
         fwrite(&bytes_16, sizeof(BYTE_16), 1, output);
     }
 
