@@ -19,6 +19,16 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 
                 }
             }
+            else if (image[i][j].rgbtRed == image[i][j].rgbtGreen)
+            {
+                image[i][j].rgbtBlue = image[i][j].rgbtRed;
+                
+            }
+            else if (image[i][j].rgbtRed == image[i][j].rgbtBlue)
+            {
+                image[i][j].rgbtGreen = image[i][j].rgbtRed;
+                
+            }
         }
     }
     return;
