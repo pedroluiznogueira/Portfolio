@@ -61,7 +61,6 @@ void swap(int *a, int *b)
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
-    int k =  1;
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -70,15 +69,13 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             int originalRed = image[i][j].rgbtRed;
             int originalBlue = image[i][j].rgbtBlue;
             int originalGreen = image[i][j].rgbtGreen;
-            int swapRed = image[i][width - k].rgbtRed;
-            int swapBlue = image[i][width - k].rgbtBlue;
-            int swapGreen = image[i][width - k].rgbtGreen;
+            int swapRed = image[i][width - (j + 1)].rgbtRed;
+            int swapBlue = image[i][width - (j + 1)].rgbtBlue;
+            int swapGreen = image[i][width - (j + 1)].rgbtGreen;
 
             swap(&originalRed, &swapRed);
             swap(&originalGreen, &swapGreen);
             swap(&originalBlue, &swapBlue);
-
-            k = k + 1;
         }
 
     }
