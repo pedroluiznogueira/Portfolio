@@ -1,5 +1,6 @@
 #include "helpers.h"
 #include <math.h>
+#include <cs50.h>
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -63,17 +64,66 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < width / 2; j++)
+        for (int j = 0; j < width / 2; j++) // If you iterate through width at all, it will remake everything that was done
         {
-            swap(&image[i][j], &image[i][width - (j + 1)]);
+            swap(&image[i][j], &image[i][width - (j + 1)]); // You need to swap the adress of the pixels indeed, in that case it has nothing to do with colors
         }
 
     }
     return;
 }
 
+bool is_valid_pixel(int i, int j, int height, int width)
+{
+    return i >= 0 && i < height && j >= 0 && j < width;
+}
+
+RGBTRIPLE get_blurred_pixel(int i, int j, int height, int width, RGBTRIPLE image[height][width])
+{
+    int redValue, blueValue, greenValue;
+    redValue = blueValue = greenValue = 0;
+    int numOfValidPixels = 0;
+    for (int di = -1; di <= 1; di++)
+    {
+        for (int dj = -1; dj <= 1; dj++)
+        {
+            int new_i = i + di;
+            int new_j = j + dj;
+            if (is_valid_pixel(new_i, new_j, height, width))
+            {
+                numOfValidPixels++;
+                redValue += image[new_i][new_j].rgbtRed;
+                blueValue += image[new_i][new_j].rgbtBlue;
+                greenValue += image[new_i][new_j].rgbtGreen;
+            }
+        }
+    }
+    RGBTRIPLE blurred_pixel;
+    blurred_pixel.rgbtRed = round((float) redValue / numOfValidPixels);
+    blurred_pixel.rgbtGreen = round((float) greenValue / numOfValidPixels);
+    blurred_pixel.rgbtBlue = round((float) blueValue / numOfValidPixels);
+    return blurred_pixel;
+
+}
+
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    return;
+    RGBTRIPLE new_image[height][width];
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            new_image[i][j] = get_blurred_pixel(i, j, height, width, image);
+        }
+    }
+
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            image[i][j] = new_image[i][j];
+        }
+    }
+
 }
