@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Image Search</title>
+        <link href="style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    </head>
+
+    <body>
+
+        <!-- bootstrap justify-content-end, puts the navigation bar in the right corner of the page -->
+        <ul class="nav justify-content-end">
+
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Google Search</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="advanced.html">Advanced Search</a>
+            </li>
+
+        </ul>
+
+        <!-- google logo  -->
+        <img src="google.png" alt="Google Image" id="image">
+
+        <form action="https://google.com/search">
+
+            <div>
+
+                <!-- that is the line that makes the search directly into google images results -->
+                <input type="hidden" name="tbm" value="isch">
+
+                <input class="search-input" type="text" name="q" placeholder="     Search for an Image" style="outline: none;">
+            </div>
+
+            <!-- bootstrap btn btn-light, makes the button lighter -->
+            <div class="d-flex justify-content-center">
+                <input class="btn btn-primary" type="submit" value="Google Image Search">
+            </div>
+        </form>
+
+    </body>
+</html>

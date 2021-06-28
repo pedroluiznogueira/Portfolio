@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <link href="style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    </head>
+
+    <body>
+
+        <!-- bootstrap justify-content-end, puts the navigation bar in the right corner of the page -->
+        <ul class="nav justify-content-end">
+
+            <div id="ad-search">
+                <li class="nav-item">
+                    <a class="nav-link"  href="image.html">Image Search</a>
+                  </li>
+            </div>
+
+            <div id="img-search">
+                <li class="nav-item">
+                    <a class="nav-link" href="advanced.html">Advanced Search</a>
+                  </li>
+            </div>
+
+        </ul>
+
+        <!-- google logo -->
+        <img src="google.png" alt="Google Image" id="image">
+
+        <form action="https://google.com/search">
+
+            <div>
+                <input class="search-input" type="text" name="q" placeholder="     Search on Google or type a URL..." style="outline: none;">
+            </div>
+
+            <div class="d-flex justify-content-center">
+
+                <!-- bootstrap btn btn-light, makes the button lighter -->
+                <input class="btn btn-primary" type="submit" value="Google Search" style="margin-right: 10px;">
+                <input class="btn btn-primary" type="submit" value="I'm Feeling Lucky" name="btnI">
+
+            </div>
+
+        </form>
+
+    </body>
+</html>
